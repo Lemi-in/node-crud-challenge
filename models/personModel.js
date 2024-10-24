@@ -22,28 +22,21 @@ const createPerson = (name, age, hobbies) => {
 };
 
 const updatePerson = (id, name, age, hobbies) => {
-    const personIdx = persons.findIndex(p => p.id == id);
-    if (personIdx !== -1) {
-        persons[personIdx] = { id, name, age, hobbies }; 
-        return persons[personIdx];
+    const idx = persons.findIndex(p => p.id == id);
+    if (idx !== -1) {
+        persons[idx] = { id, name, age, hobbies }; 
+        return persons[idx];
     }
     return null;
 };
 
 
 const deletePerson = (id) => {
-    const personIdx = persons.findIndex(p => p.id === id);
-    if(personIdx !== -1){
-        return persons.splice(personIdx, 1);
+    const idx = persons.findIndex(p => p.id === id);
+    if(idx !== -1){
+        return persons.splice(idx, 1);
     }
     return null;
 }
 
-module.exports = {
-    persons,
-    getAllPersons,
-    getPersonById,
-    createPerson,
-    updatePerson,
-    deletePerson
-};
+module.exports = { persons, getAllPersons, getPersonById, createPerson, updatePerson, deletePerson };
